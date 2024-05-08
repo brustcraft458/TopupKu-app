@@ -1,0 +1,7 @@
+{
+  "name": "TopupKu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
