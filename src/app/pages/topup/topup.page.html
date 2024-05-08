@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>topup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">topup</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <ion-card class="game-poster">
+      <div class="image">
+        <img alt="Silhouette of mountains" src="assets/image/gamepanelml.png" />
+      </div>
+      <ion-card-header>
+        <ion-card-title>Mobile Legend</ion-card-title>
+        <ion-card-subtitle>Game moba populer yang sangat menyenangkan untuk dimainkan dan sangat melatih kesabaran</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+  <div>
+    <ion-card class="user-form">
+      <ion-card-header class="user-header">
+        <ion-card-title>Input User</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="user-input">
+        <ion-input label="User ID" type="number" label-placement="floating" fill="outline" placeholder="Enter number"></ion-input>
+        <ion-input label="Server ID" type="number" label-placement="floating" fill="outline" placeholder="Enter number"></ion-input>
+        <ion-button size="default">Periksa</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="user-form">
+      <ion-card-header class="user-header">
+        <ion-card-title>Pilih Nominal Topup</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list class="user-selection" id="diamond-select">
+          <ion-item class="item selected" button (click)="tesLog('hello')">
+            <ion-thumbnail class="image" slot="start">
+              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            </ion-thumbnail>
+            <div class="desc">
+              <ion-label>8 DM</ion-label>
+              <ion-text>20K</ion-text>
+            </div>
+          </ion-item>
+
+          <ion-item class="item" button (click)="tesLog('hello')">
+            <ion-thumbnail class="image" slot="start">
+              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            </ion-thumbnail>
+            <div class="desc">
+              <ion-label>20 DM</ion-label>
+              <ion-text>40K</ion-text>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="user-form">
+      <ion-card-header class="user-header">
+        <ion-card-title>Pilih Pembayaran</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list class="user-selection" id="diamond-select">
+          <ion-item class="item" button>
+            <ion-thumbnail class="image" slot="start">
+              <img alt="Money Dana" src="assets/image/moneydanaicon.png" />
+            </ion-thumbnail>
+            <div class="desc">
+              <ion-label>Dana</ion-label>
+            </div>
+          </ion-item>
+
+          <ion-item class="item" button>
+            <ion-thumbnail class="image" slot="start">
+              <img alt="Money Gopay" src="assets/image/moneygopayicon.png" />
+            </ion-thumbnail>
+            <div class="desc">
+              <ion-label>Gopay</ion-label>
+            </div>
+          </ion-item>
+
+          <ion-item class="item" button>
+            <ion-thumbnail class="image" slot="start">
+              <img alt="Money Shopee" src="assets/image/moneyshopeeicon.png" />
+            </ion-thumbnail>
+            <div class="desc">
+              <ion-label>Shoope Pay</ion-label>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="user-form">
+      <ion-card-header class="user-header">
+        <ion-card-title>Masukkan Nomor Wa</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="user-input">
+        <ion-input label="Nomor WA" type="number" label-placement="floating" fill="outline" placeholder="Enter number"></ion-input>
+        <ion-button size="default">Beli Sekarang</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

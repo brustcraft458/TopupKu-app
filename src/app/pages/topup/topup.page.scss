@@ -1,0 +1,52 @@
+.game-poster img {
+  width: 100%;
+  height: 251px;
+  object-fit: cover;
+}
+
+.user-input {
+
+  ion-input {
+    margin-bottom: 16px;
+  }
+}
+
+.user-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(151px, 1fr));
+  gap: 16px;
+
+  .item {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: -200px;
+      bottom: 0;
+      transition: 0.4s all;
+      background-color: var(--ion-color-primary);
+      border-radius: 20px;
+      opacity: 0.1;
+      z-index: 2;
+    }
+
+    &.selected::after {
+      border-radius: 0px;
+      left: 0px;
+    }
+  }
+
+  .image {
+    width: 49px;
+    height: 49px;
+  }
+
+  .desc {
+    display: flex;
+    flex-direction: column;
+  }
+}

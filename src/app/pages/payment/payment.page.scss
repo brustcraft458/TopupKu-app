@@ -1,0 +1,58 @@
+.payment-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-areas:
+    "pay-1 pay-2"
+    "pay-3 pay-3";
+}
+
+.payment-card {
+  display: flex;
+  height: 95px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: red;
+}
+
+.payment-desc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.payment-desc ion-icon {
+  font-size: 20px;
+}
+
+.payment-badge {
+  align-self: flex-end;
+}
+
+.qris-card {
+  margin-top: 25px;
+}
+
+.qris-image {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 20px;
+}
+
+// .qris-header * {
+//   padding: 0;
+//   margin: 0;
+// }
+
+.qris-header ion-card-subtitle {
+  margin-top: 4px;
+}
+
+.qris-image img {
+  display: block;
+  width: 186px;
+  height: 186px;
+}
