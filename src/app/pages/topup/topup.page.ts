@@ -32,11 +32,20 @@ export class TopupPage implements OnInit {
       element.classList.add("selected")
     }
 
+    const userFormExpand = (element: Element, parrent: Element) => {
+      resetClassElement(parrent, ".item", "hide")
+      element.classList.add("hide")
+    }
+
     // Hook
-    document.querySelectorAll(".user-selection")?.forEach(parrent => {
-      parrent.querySelectorAll(".item").forEach(child => {
+    document.querySelectorAll(".user-form")?.forEach(parrent => {
+      let selectionElement = parrent.querySelector(".user-selection")
+      selectionElement?.querySelectorAll(".item").forEach(child => {
         child.addEventListener("click", () => {userSelectionClick(child, parrent)})
       })
+
+      let expandButton: any = parrent.querySelector(".expand")
+      expandButton?.addEventListener("click", () => {userFormExpand(expandButton, parrent)})
     })
   }
 
