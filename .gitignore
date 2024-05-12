@@ -66,6 +66,7 @@ yarn-error.log
 testem.log
 /typings
 /package-lock.json
+/android
 
 # System files
 .DS_Store
