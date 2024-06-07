@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <div class="validation-main">
+    <div class="validation-form">
+      <h1 class="title-top">Verifikasi</h1>
+      <div class="content-input">
+        <h4 class="title">Akun</h4>
+        <div class="input-list">
+          <ion-input class="input-item" label="Email / Phone" type="text" [(ngModel)]="input.emailOrPhone" label-placement="floating" fill="outline" disabled></ion-input>
+          <ion-input class="input-item" label="Konfirmasi Password" type="password" [(ngModel)]="input.password" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Kode OTP" type="text" [(ngModel)]="input.otp" label-placement="floating" fill="outline"></ion-input>
+        </div>
+        <ion-text class="side-text" color="primary" routerLink="/register">Gagal atau Lupa?</ion-text>
+      </div>
+      <div class="button-bottom">
+        <ion-button class="button-item" button size="default" (click)="verify()">
+          <ion-icon name="lock-closed-sharp"/>
+          Verifikasi
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

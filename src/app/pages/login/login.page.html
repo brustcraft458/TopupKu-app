@@ -5,8 +5,8 @@
       <div class="content-input">
         <h4 class="title">Akun</h4>
         <div class="input-list">
-          <ion-input class="input-item" label="Username" type="text" label-placement="floating" fill="outline"></ion-input>
-          <ion-input class="input-item" label="Password" type="password" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Username" type="text" [(ngModel)]="input.username" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Password" type="password" [(ngModel)]="input.password" label-placement="floating" fill="outline"></ion-input>
         </div>
         <ion-text class="side-text" color="primary" routerLink="/register">Tidak Punya Akun?</ion-text>
       </div>

@@ -5,9 +5,9 @@
       <div class="content-input">
         <h4 class="title">Akun</h4>
         <div class="input-list">
-          <ion-input class="input-item" label="Email / Phone" type="text" [(ngModel)]="emailOrPhone" (ngModelChange)="setEmailOrPhone($event)" label-placement="floating" fill="outline"></ion-input>
-          <ion-input class="input-item" label="Username" type="text" [(ngModel)]="registerForm.username" label-placement="floating" fill="outline"></ion-input>
-          <ion-input class="input-item" label="Password" type="password" [(ngModel)]="registerForm.password" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Email / Phone" type="text" [(ngModel)]="input.emailOrPhone" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Username" type="text" [(ngModel)]="input.username" label-placement="floating" fill="outline"></ion-input>
+          <ion-input class="input-item" label="Password" type="password" [(ngModel)]="input.password" label-placement="floating" fill="outline"></ion-input>
         </div>
         <ion-text class="side-text" color="primary" routerLink="/login">Sudah Punya Akun?</ion-text>
       </div>
