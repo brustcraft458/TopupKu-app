@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'landing/register-verification',
     loadChildren: () => import('./pages/landing/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
   },
+  {
+    path: 'mainapp/transaction',
+    loadChildren: () => import('./pages/mainapp/transaction/transaction.module').then( m => m.TransactionPageModule)
+  },
+
 
 ];
 
