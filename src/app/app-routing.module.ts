@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'landing/login',
     pathMatch: 'full'
   },
   {
@@ -20,16 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tmp/payment/payment.module').then( m => m.PaymentPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule)
+    path: 'landing/login',
+    loadChildren: () => import('./pages/landing/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
+    path: 'landing/register',
+    loadChildren: () => import('./pages/landing/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'register-verification',
-    loadChildren: () => import('./pages/auth/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
+    path: 'landing/register-verification',
+    loadChildren: () => import('./pages/landing/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
   },
 
 ];
