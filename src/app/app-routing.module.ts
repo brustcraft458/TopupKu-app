@@ -9,26 +9,27 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/tmp/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'topup',
-    loadChildren: () => import('./pages/topup/topup.module').then( m => m.TopupPageModule)
+    loadChildren: () => import('./pages/tmp/topup/topup.module').then( m => m.TopupPageModule)
   },
   {
     path: 'payment',
-    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+    loadChildren: () => import('./pages/tmp/payment/payment.module').then( m => m.PaymentPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  },  {
+    loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
     path: 'register-verification',
-    loadChildren: () => import('./pages/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
+    loadChildren: () => import('./pages/auth/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
   },
 
 ];
