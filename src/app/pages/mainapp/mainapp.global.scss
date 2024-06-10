@@ -1,0 +1,250 @@
+.mainapp {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(180deg, #375E8E 0%, #0D3064 100%);
+}
+
+.mainapp-header {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 20px;
+  background: rgba(55, 94, 142, 0.68);
+  box-shadow: 0px 0px 2px rgba(241, 247, 255, 0.14);
+  color: white;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+
+  * {
+    margin: 0;
+  }
+
+  .left-icon, .right-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .left-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .center-text {
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .right-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #B6B6B6;
+  }
+}
+
+.mainapp-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 15px;
+  gap: 40px;
+  color: #FFFFFF;
+  margin-top: 80px;
+
+  .information-card {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 177px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 25px 27px;
+    gap: 20px;
+    background: #5886C9;
+    border-radius: 20px;
+    overflow: hidden;
+
+    * {
+      margin: 0;
+    }
+
+    .background {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      left: 0;
+      top: -20px;
+      background: url("../../../assets/image/mlbgblur.png") top;
+      background-size: 200%;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .top-information {
+      display: flex;
+      width: 100%;
+      height: fit-content;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 2px;
+
+      .title {
+        font-weight: 300;
+        font-size: 18px;
+      }
+
+      .highlight {
+        font-weight: 500;
+        font-size: 35px;
+      }
+    }
+
+    .bottom-information {
+      display: flex;
+      width: 100%;
+      height: fit-content;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      .left-text, .right-text {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+
+        .title {
+          font-weight: 300;
+          font-size: 17px;
+        }
+
+        .value {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          font-weight: 500;
+          font-size: 18px;
+          gap: 7px;
+        }
+      }
+    }
+  }
+
+  .list-container {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 11px;
+
+    * {
+      margin: 0;
+    }
+
+    .top-title {
+      .title {
+        font-size: 18px;
+      }
+    }
+
+    .item-list {
+      display: flex;
+      width: 100%;
+      height: fit-content;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      margin: auto;
+
+      .item {
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding: 12px 12px;
+        background: #416593;
+        border-radius: 11px;
+
+        .left-desc {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          gap: 14px;
+
+          .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .text-desc {
+            display: flex;
+            max-width: 355px;
+            height: fit-content;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+
+
+            .title {
+              font-size: 16px;
+            }
+
+            .label {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .right-value {
+          display: flex;
+          width: fit-content;
+          height: fit-content;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 10px;
+
+          h2 {
+            font-size: 17px;
+            font-weight: 500;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

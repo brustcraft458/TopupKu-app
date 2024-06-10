@@ -1,8 +1,92 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>transaction</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+<ion-header [translucent]="true">
+  <div class="mainapp-header">
+    <div class="left-icon">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    <h2 class="center-text">Transaksi</h2>
+    <div class="right-icon">
+      <ion-icon name="person-sharp"></ion-icon>
+    </div>
+  </div>
+</ion-header>
+
 
 <ion-content [fullscreen]="true">
+  <div class="mainapp">
+    <div class="mainapp-content">
+      <div class="information-card">
+        <div class="background"></div>
+        <div class="top-information">
+          <p class="title">Total Transaksi</p>
+          <h3 class="highlight">Rp 200.000</h3>
+        </div>
+        <div class="bottom-information">
+          <div class="left-text">
+            <p class="title">Pending</p>
+            <h4 class="value"><ion-icon name="person-sharp"/>10</h4>
+          </div>
+          <div class="right-text">
+            <p class="title">Berhasil</p>
+            <h4 class="value"><ion-icon name="person-sharp"/>5</h4>
+          </div>
+        </div>
+      </div>
+      <div class="list-container">
+        <div class="top-title">
+          <h2 class="title">Transaksi Pending</h2>
+        </div>
+        <div class="item-list">
+          <div class="item">
+            <div class="left-desc">
+              <div class="icon">
+                <img src="assets/image/gameiconml.png" alt="">
+              </div>
+              <div class="text-desc">
+                <h2 class="title">Mobile Legend</h2>
+                <p class="label">8 Orang</p>
+              </div>
+            </div>
+            <div class="right-value">
+              <h2>Rp 80K</h2>
+            </div>
+          </div>
+          <div class="item">
+            <div class="left-desc">
+              <div class="icon">
+                <img src="assets/image/gameiconpubg.png" alt="">
+              </div>
+              <div class="text-desc">
+                <h2 class="title">Pubg Mobile</h2>
+                <p class="label">2 Orang</p>
+              </div>
+            </div>
+            <div class="right-value">
+              <h2>Rp 20K</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-container">
+        <div class="top-title">
+          <h2 class="title">Transaksi Berhasil</h2>
+        </div>
+        <div class="item-list">
+          <div class="item">
+            <div class="left-desc">
+              <div class="icon">
+                <img src="assets/image/gameiconml.png" alt="">
+              </div>
+              <div class="text-desc">
+                <h2 class="title">Mobile Legend</h2>
+                <p class="label">Sangat Populer</p>
+              </div>
+            </div>
+            <div class="right-value">
+              <h2>Rp 200K</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

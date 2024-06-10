@@ -8,10 +8,10 @@
           <ion-input class="input-item" label="Username" type="text" [(ngModel)]="input.username" label-placement="floating" fill="outline"></ion-input>
           <ion-input class="input-item" label="Password" type="password" [(ngModel)]="input.password" label-placement="floating" fill="outline"></ion-input>
         </div>
-        <ion-text class="side-text" color="primary" routerLink="/register">Tidak Punya Akun?</ion-text>
+        <ion-text class="side-text" color="primary" routerLink="/landing/register">Tidak Punya Akun?</ion-text>
       </div>
       <div class="button-bottom">
-        <ion-button class="button-item" button size="default">
+        <ion-button class="button-item" button size="default" routerLink="/mainapp/transaction">
           <ion-icon name="person-sharp"/>
           Login
         </ion-button>
