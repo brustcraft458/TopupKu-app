@@ -15,19 +15,27 @@ export class RegisterPage implements OnInit {
     password: ""
   }
 
-  constructor(private authService: UserAuthService, private storage: LocalStorageService) {}
+  constructor(private authService: UserAuthService, private storageService: LocalStorageService, private navController: NavController) {}
 
   ngOnInit() {
+    this.clearInput()
   }
 
-  async ionViewDidEnter() {
-    await this.storage.onCreated
-    this.initCacheInput()
+  async ionViewWillEnter() {
+    this.clearInput()
+    await this.storageService.onCreated
+    await this.initCacheInput()
+  }
+
+  clearInput() {
+    this.input.emailOrPhone = ""
+    this.input.username = ""
+    this.input.password = ""
   }
 
   async initCacheInput() {
-    this.input.emailOrPhone = await this.storage.getItem('user_emailOrPhone')
-    this.input.username = await this.storage.getItem('user_username')
+    this.input.emailOrPhone = await this.storageService.getItem('user_emailOrPhone')
+    this.input.username = await this.storageService.getItem('user_username')
   }
 
   register() {
@@ -40,12 +48,13 @@ export class RegisterPage implements OnInit {
     }
 
     // Save Cache
-    this.storage.setItem('user_emailOrPhone', this.input.emailOrPhone)
-    this.storage.setItem('user_username', this.input.username)
+    this.storageService.setItem('user_emailOrPhone', this.input.emailOrPhone)
+    this.storageService.setItem('user_username', this.input.username)
 
     // Send
     this.authService.register(form).subscribe(resp => {
       console.log("register_respone: ", resp)
+      this.navController.navigateForward("/landing/login")
     })
   }
 
@@ -55,7 +64,7 @@ export class RegisterPage implements OnInit {
       email: "",
       phone: ""
     }
-    
+
     if (phonePattern.test(text)) {
       edata.phone = text
     } else {

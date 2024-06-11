@@ -10,8 +10,7 @@ export class UserAuthService {
   private apiUrl: string;
 
   constructor(private http: HttpClient) {
-    // this.apiUrl = `${environment.serverUrl}/api`
-    this.apiUrl = "http://127.0.0.1:8000/api"
+    this.apiUrl = `${environment.serverUrl}/api`
   }
 
   register(json: any): Observable<any> {
@@ -20,7 +19,8 @@ export class UserAuthService {
     return this.http.post<any>(`${this.apiUrl}/register`, json)
   }
 
-  public login() {
-
+  login(json: any) {
+    console.log("login", json)
+    return this.http.post<any>(`${this.apiUrl}/login`, json)
   }
 }
