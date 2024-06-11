@@ -8,6 +8,8 @@ import { TransactionPageRoutingModule } from './transaction-routing.module';
 
 import { TransactionPage } from './transaction.page';
 
+import { MainHeaderComponent } from '../../../components/main-header/main-header.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { TransactionPage } from './transaction.page';
     IonicModule,
     TransactionPageRoutingModule
   ],
-  declarations: [TransactionPage]
+  declarations: [TransactionPage, MainHeaderComponent]
 })
 export class TransactionPageModule {}
