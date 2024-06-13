@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { AlertPopupService } from 'src/app/services/alert-popup.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterPage implements OnInit {
     password: ""
   }
 
-  constructor(private authService: UserAuthService, private storageService: LocalStorageService, private navController: NavController) {}
+  constructor(private auth: UserAuthService, private storage: LocalStorageService, private navigation: NavController, private alert: AlertPopupService) {}
 
   ngOnInit() {
     this.clearInput()
@@ -23,19 +24,18 @@ export class RegisterPage implements OnInit {
 
   async ionViewWillEnter() {
     this.clearInput()
-    await this.storageService.onCreated
     await this.initCacheInput()
   }
 
-  clearInput() {
+  private clearInput() {
     this.input.emailOrPhone = ""
     this.input.username = ""
     this.input.password = ""
   }
 
   async initCacheInput() {
-    this.input.emailOrPhone = await this.storageService.getItem('user_emailOrPhone')
-    this.input.username = await this.storageService.getItem('user_username')
+    this.input.emailOrPhone = await this.storage.getItem('user_emailOrPhone')
+    this.input.username = await this.storage.getItem('user_username')
   }
 
   register() {
@@ -48,13 +48,21 @@ export class RegisterPage implements OnInit {
     }
 
     // Save Cache
-    this.storageService.setItem('user_emailOrPhone', this.input.emailOrPhone)
-    this.storageService.setItem('user_username', this.input.username)
+    this.storage.setItem('user_emailOrPhone', this.input.emailOrPhone)
+    this.storage.setItem('user_username', this.input.username)
 
     // Send
-    this.authService.register(form).subscribe(resp => {
-      console.log("register_respone: ", resp)
-      this.navController.navigateForward("/landing/login")
+    this.auth.register(form).subscribe({
+      next: async(resp) => {
+        // Save
+        await this.storage.setItem('user_username', this.input.username)
+
+        // Redirect
+        this.navigation.navigateForward("/landing/login")
+      },
+      error: (err) => {
+        this.alert.present({header: err.message, message: err.debug})
+      }
     })
   }
 

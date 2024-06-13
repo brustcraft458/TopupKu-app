@@ -20,7 +20,6 @@ export class RegisterVerificationPage implements OnInit {
   }
 
   async ionViewDidEnter() {
-    await this.storage.onCreated
     this.initCacheInput()
   }
 

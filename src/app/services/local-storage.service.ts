@@ -5,15 +5,28 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  onCreated: Promise<any> = this.storage.create()
+  isLoaded = false
 
-  constructor(private storage: Storage) {}
+  constructor(private storage: Storage) {this.initStorage()}
 
-  setItem(key: string, value: string) {
-    return this.storage.set(key, value);
+  async initStorage() {
+    if (this.isLoaded) {return}
+
+    const stg = await this.storage.create()
+    if (stg) {
+      this.isLoaded = true
+    } else {
+      this.isLoaded = false
+    }
   }
 
-  getItem(key: string) {
-    return this.storage.get(key);
+  async setItem(key: string, value: string) {
+    await this.initStorage()
+    return await this.storage.set(key, value);
+  }
+
+  async getItem(key: string) {
+    await this.initStorage()
+    return await this.storage.get(key);
   }
 }

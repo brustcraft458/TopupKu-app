@@ -23,11 +23,10 @@ export class LoginPage implements OnInit {
 
   async ionViewWillEnter() {
     this.clearInput()
-    await this.storage.onCreated
     await this.initCacheInput()
   }
 
-  clearInput() {
+  private clearInput() {
     this.input.username = ""
     this.input.password = ""
   }
@@ -38,15 +37,17 @@ export class LoginPage implements OnInit {
 
   login() {
     this.auth.login(this.input).subscribe({
-      next: (res) => {
-        console.log("login respone", res)
+      next: async(resp) => {
+        // Save
+        await this.storage.setItem('user_username', this.input.username)
+        await this.storage.setItem('user_token', resp.token)
+        console.log(resp)
+
+        // Redirect
         this.navigation.navigateForward("/mainapp/transaction")
       },
       error: (err) => {
-        let msg = err.error?.message || err.name
-        let debug = err.error?.debug?.message || ""
-
-        this.alert.present({header: msg, message: debug})
+        this.alert.present({header: err.message, message: err.debug})
       }
     })
   }
