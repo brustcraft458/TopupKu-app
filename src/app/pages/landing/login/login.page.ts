@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AlertPopupService } from 'src/app/services/alert-popup.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
     password: ""
   }
 
-  constructor(private authService: UserAuthService, private storageService: LocalStorageService, private navController: NavController) {}
+  constructor(private auth: UserAuthService, private storage: LocalStorageService, private navigation: NavController, private alert: AlertPopupService) {}
 
   ngOnInit() {
     this.clearInput()
@@ -22,7 +23,7 @@ export class LoginPage implements OnInit {
 
   async ionViewWillEnter() {
     this.clearInput()
-    await this.storageService.onCreated
+    await this.storage.onCreated
     await this.initCacheInput()
   }
 
@@ -32,13 +33,21 @@ export class LoginPage implements OnInit {
   }
 
   async initCacheInput() {
-    this.input.username = await this.storageService.getItem('user_username')
+    this.input.username = await this.storage.getItem('user_username')
   }
 
   login() {
-    this.authService.login(this.input).subscribe(res => {
-      console.log("login respone", res)
-      this.navController.navigateForward("/mainapp/transaction")
+    this.auth.login(this.input).subscribe({
+      next: (res) => {
+        console.log("login respone", res)
+        this.navigation.navigateForward("/mainapp/transaction")
+      },
+      error: (err) => {
+        let msg = err.error?.message || err.name
+        let debug = err.error?.debug?.message || ""
+
+        this.alert.present({header: msg, message: debug})
+      }
     })
   }
 
