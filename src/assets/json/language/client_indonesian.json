@@ -1,0 +1,8 @@
+{
+  "transaction": {
+    "title": {
+      "success": "Transaksi Berhasil",
+      "pending": "Transaksi Pending"
+    }
+  }
+}

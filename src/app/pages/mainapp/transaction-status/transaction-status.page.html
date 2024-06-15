@@ -1,0 +1,33 @@
+<!-- <app-main-header [title]="'Transaksi'" [backRedirect]="'/landing/login'" [profileImg]="''"></app-main-header> -->
+<ion-content [fullscreen]="true">
+  <div class="mainapp">
+    <div class="mainapp-content">
+      <div class="list-container">
+        <div class="top-title">
+          <div *ngIf="param.status === 'pending'">
+            <h3 class="title">{{localText('transaction_title_pending')}}</h3>
+          </div>
+          <div *ngIf="param.status === 'success'">
+            <h3 class="title">{{localText('transaction_title_success')}}</h3>
+          </div>
+        </div>
+        <div class="item-list">
+          <div class="item" button *ngFor="let item of transactionList">
+            <div class="left-desc">
+              <div class="icon">
+                <img src="assets/image/gameiconml.png" alt="">
+              </div>
+              <div class="text-desc">
+                <h5 class="title">Mobile Legend</h5>
+                <p class="label">8 Orang</p>
+              </div>
+            </div>
+            <div class="right-value">
+              <h4>Rp 80K</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -32,9 +32,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/landing/register-verification/register-verification.module').then( m => m.RegisterVerificationPageModule)
   },
   {
-    path: 'mainapp/transaction',
+    path: 'mainapp/transaction/game',
     loadChildren: () => import('./pages/mainapp/transaction/transaction.module').then( m => m.TransactionPageModule)
   },
+  {
+    path: 'mainapp/transaction/game/:status/:game_id',
+    loadChildren: () => import('./pages/mainapp/transaction-status/transaction-status.module').then( m => m.TransactionStatusPageModule)
+  },
+
+
 
 
 ];
