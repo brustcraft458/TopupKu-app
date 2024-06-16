@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
         console.log(resp)
 
         // Redirect
-        this.navigation.navigateForward("/mainapp/transaction")
+        this.navigation.navigateForward("/mainapp/transaction/game")
       },
       error: (err) => {
         this.alert.present({header: err.message, message: err.debug})
