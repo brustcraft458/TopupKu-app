@@ -19,6 +19,12 @@ export class TransactionApiService {
     )
   }
 
+  getGameUsers(status: string, gameId: string) {
+    return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}/${gameId}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   private handleError(err: any) {
     let msg = err.error?.message || err.name
     let debug = err.error?.debug?.message || ""

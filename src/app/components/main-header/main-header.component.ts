@@ -22,4 +22,8 @@ export class MainHeaderComponent  implements OnInit {
     });
   }
 
+  redirectBack() {
+    this.navigation.navigateBack(this.backRedirect)
+  }
+
 }

@@ -1,4 +1,4 @@
-<!-- <app-main-header [title]="'Transaksi'" [backRedirect]="'/landing/login'" [profileImg]="''"></app-main-header> -->
+<app-main-header [title]="'Transaksi'" [backRedirect]="'/mainapp/transaction/game'" [profileImg]="''"></app-main-header>
 <ion-content [fullscreen]="true">
   <div class="mainapp">
     <div class="mainapp-content">
@@ -18,12 +18,12 @@
                 <img src="assets/image/gameiconml.png" alt="">
               </div>
               <div class="text-desc">
-                <h5 class="title">Mobile Legend</h5>
-                <p class="label">8 Orang</p>
+                <h5 class="title">{{item['product_name']}}</h5>
+                <p class="label">{{item['usergame_name']}}</p>
               </div>
             </div>
             <div class="right-value">
-              <h4>Rp 80K</h4>
+              <h4>{{rupiahText(item['payment_price'], {short: true})}}</h4>
             </div>
           </div>
         </div>

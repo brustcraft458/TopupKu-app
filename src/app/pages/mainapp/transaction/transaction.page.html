@@ -21,10 +21,10 @@
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">Transaksi Pending</h3>
+          <h3 class="title">{{localText('transaction_title_pending')}}</h3>
         </div>
         <div class="item-list">
-          <div class="item" button *ngFor="let item of transactionDataList.pending">
+          <div class="item" button *ngFor="let item of transactionDataList.pending" (click)="redirectToPending(item['game_id'])">
             <div class="left-desc">
               <div class="icon">
                 <img src="assets/image/gameiconml.png" alt="">
@@ -42,21 +42,21 @@
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">Transaksi Berhasil</h3>
+          <h3 class="title">{{localText('transaction_title_succes')}}</h3>
         </div>
         <div class="item-list">
-          <div class="item">
+          <div class="item" button *ngFor="let item of transactionDataList.success" (click)="redirectToSuccess(item['game_id'])">
             <div class="left-desc">
               <div class="icon">
                 <img src="assets/image/gameiconml.png" alt="">
               </div>
               <div class="text-desc">
-                <h5 class="title">Mobile Legend</h5>
-                <p class="label">Sangat Populer</p>
+                <h5 class="title">{{item['game_name']}}</h5>
+                <p class="label">{{item['user_total']}} Orang</p>
               </div>
             </div>
             <div class="right-value">
-              <h4>Rp 200K</h4>
+              <h4>{{rupiahText(item['price_total'], {short: true})}}</h4>
             </div>
           </div>
         </div>

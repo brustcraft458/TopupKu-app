@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <div class="mainapp-header">
-    <div class="left-icon" button routerLink="{{backRedirect}}">
+    <div class="left-icon" button (click)="redirectBack()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </div>
     <h2 class="center-text">{{title}}</h2>

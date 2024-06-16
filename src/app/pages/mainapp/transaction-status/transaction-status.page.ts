@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { localText } from 'src/app/helpers/text'
+import { localText, rupiahText } from 'src/app/helpers/text'
 import { TransactionApiService } from 'src/app/services/transaction-api.service';
 
 
@@ -11,6 +11,7 @@ import { TransactionApiService } from 'src/app/services/transaction-api.service'
 })
 export class TransactionStatusPage implements OnInit {
   localText = localText
+  rupiahText = rupiahText
   param = {
     status: "",
     gameId: ""
@@ -25,8 +26,12 @@ export class TransactionStatusPage implements OnInit {
     this.param.gameId = this.route.snapshot.paramMap.get('game_id') || "";
   }
 
+  async ionViewWillEnter() {
+    this.initTransactionText()
+  }
+
   initTransactionText() {
-    this.transaction.getGameTotal(this.param.status).subscribe(resp => {
+    this.transaction.getGameUsers(this.param.status, this.param.gameId).subscribe(resp => {
       this.transactionList = resp.data
     })
   }
