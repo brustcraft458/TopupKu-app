@@ -12,6 +12,7 @@ import { TransactionApiService } from 'src/app/services/transaction-api.service'
 export class TransactionStatusPage implements OnInit {
   localText = localText
   rupiahText = rupiahText
+
   param = {
     status: "",
     gameId: ""

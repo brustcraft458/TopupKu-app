@@ -11,6 +11,18 @@ import { NavController } from '@ionic/angular';
 export class TransactionPage implements OnInit {
   localText = localText
   rupiahText = rupiahText
+
+  informationData = {
+    pending: {
+      user: 0,
+      price: 0
+    },
+    success: {
+      user: 0,
+      price: 0
+    }
+  }
+
   transactionDataList = {
     pending: [],
     success: []
@@ -27,11 +39,31 @@ export class TransactionPage implements OnInit {
 
   initTransactionText() {
     this.transaction.getGameTotal('pending').subscribe(resp => {
+      // clear
+      this.informationData.pending.user = 0
+      this.informationData.pending.price = 0
+
+      // data
       this.transactionDataList.pending = resp.data
+
+      resp.data.forEach((item: any) => {
+        this.informationData.pending.user += parseInt(item['user_total'])
+        this.informationData.pending.price += parseInt(item['price_total'])
+      })
     })
 
     this.transaction.getGameTotal('success').subscribe(resp => {
+      // clear
+      this.informationData.success.user = 0
+      this.informationData.success.price = 0
+
+      // data
       this.transactionDataList.success = resp.data
+
+      resp.data.forEach((item: any) => {
+        this.informationData.success.user += parseInt(item['user_total'])
+        this.informationData.success.price += parseInt(item['price_total'])
+      })
     })
   }
 
