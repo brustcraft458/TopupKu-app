@@ -67,6 +67,7 @@ testem.log
 /typings
 /package-lock.json
 /android
+/tmp
 
 # System files
 .DS_Store

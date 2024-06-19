@@ -13,6 +13,64 @@ export class TransactionApiService {
     this.apiUrl = `${environment.serverUrl}/api`
   }
 
+  initGameTotal() {
+    return {
+      status: "",
+      game_id: "",
+      game_name: "",
+      paid_total: 0,
+      user_total: 0
+    }
+  }
+
+  initGameUsers() {
+    return {
+      transaction_id: "",
+      transaction_status: "",
+      product_name: "",
+      game_name: "",
+      lasted_price: 0,
+      product_price: 0,
+      paid_price: 0,
+      usergame_name: ""
+    }
+  }
+
+  initDetail() {
+    return {
+      transaction: {
+        status: "",
+        processed_by: "",
+        created_at: "",
+        updated_at: ""
+      },
+      game: {
+        name: ""
+      },
+      user: {
+        username: "",
+        phone: ""
+      },
+      usergame: {
+        globalid: "",
+        server: "",
+        username: ""
+      },
+      product: {
+        name: "",
+        price: 0
+      },
+      payment: {
+        status: "",
+        product_price: 0,
+        seller_cost: 0,
+        service_cost: 0,
+        total_cost: 0,
+        paid_price: 0
+      }
+    }
+  }
+
   getGameTotal(status: string) {
     return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}`).pipe(
       catchError(this.handleError)
@@ -21,6 +79,12 @@ export class TransactionApiService {
 
   getGameUsers(status: string, gameId: string) {
     return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}/${gameId}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getDetail(transactionId: string) {
+    return this.http.get<any>(`${this.apiUrl}/transactions/game/${transactionId}`).pipe(
       catchError(this.handleError)
     )
   }

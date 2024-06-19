@@ -12,6 +12,8 @@ export class TransactionPage implements OnInit {
   localText = localText
   rupiahText = rupiahText
 
+  constructor(private transaction: TransactionApiService, private navigation: NavController) { }
+
   informationData = {
     pending: {
       user: 0,
@@ -24,11 +26,9 @@ export class TransactionPage implements OnInit {
   }
 
   transactionDataList = {
-    pending: [],
-    success: []
+    pending: [this.transaction.initGameTotal()],
+    success: [this.transaction.initGameTotal()]
   }
-
-  constructor(private transaction: TransactionApiService, private navigation: NavController) { }
 
   ngOnInit() {
   }
@@ -47,8 +47,8 @@ export class TransactionPage implements OnInit {
       this.transactionDataList.pending = resp.data
 
       resp.data.forEach((item: any) => {
-        this.informationData.pending.user += parseInt(item['user_total'])
-        this.informationData.pending.price += parseInt(item['price_total'])
+        this.informationData.pending.user += item.user_total
+        this.informationData.pending.price += item.paid_total
       })
     })
 
@@ -61,8 +61,8 @@ export class TransactionPage implements OnInit {
       this.transactionDataList.success = resp.data
 
       resp.data.forEach((item: any) => {
-        this.informationData.success.user += parseInt(item['user_total'])
-        this.informationData.success.price += parseInt(item['price_total'])
+        this.informationData.success.user += item.user_total
+        this.informationData.success.price += item.paid_total
       })
     })
   }

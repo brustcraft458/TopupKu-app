@@ -13,14 +13,14 @@ export class TransactionStatusPage implements OnInit {
   localText = localText
   rupiahText = rupiahText
 
+  constructor(private route: ActivatedRoute, private transaction: TransactionApiService) { }
+
   param = {
     status: "",
     gameId: ""
   }
 
-  transactionList = []
-
-  constructor(private route: ActivatedRoute, private transaction: TransactionApiService) { }
+  transactionList = [this.transaction.initGameUsers()]
 
   ngOnInit() {
     this.param.status = this.route.snapshot.paramMap.get('status') || "";
