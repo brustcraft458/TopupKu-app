@@ -1,29 +1,83 @@
-<app-main-header [title]="'Transaksi'" [backRedirect]="'/landing/login'" [profileImg]="''"></app-main-header>
+<app-main-header [title]="'Transaksi'" [backRedirect]="'/mainapp/transaction/game/pending/' + transactionData.game.id" [profileImg]="''"></app-main-header>
 <ion-content [fullscreen]="true">
   <div class="mainapp">
     <div class="mainapp-content">
       <div class="information-card">
         <div class="background"></div>
         <div class="top-information">
-          <p class="title">{{informationData.game.name}} UUID</p>
-          <h3 class="highlight">{{informationData.usergame.globalid}}</h3>
+          <p class="title">{{transactionData.game.name}} UUID</p>
+          <h3 class="highlight">{{transactionData.usergame.globalid}} ({{transactionData.usergame.server}})</h3>
         </div>
         <div class="bottom-information">
           <div class="left-text">
             <p class="title">Produk</p>
-            <h4 class="value"><ion-icon name="person-sharp"/>{{informationData.product.name}}</h4>
+            <h4 class="value"><ion-icon name="cube-sharp"/>{{transactionData.product.name}}</h4>
           </div>
           <div class="right-text">
             <p class="title">Harga</p>
-            <h4 class="value"><ion-icon name="person-sharp"/>{{rupiahText(informationData.product.price, {short: true})}}</h4>
+            <h4 class="value"><ion-icon name="pricetags-sharp"/>{{rupiahText(transactionData.product.price, {short: true})}}</h4>
           </div>
         </div>
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">{{localText('transaction_title_pending')}}</h3>
+          <h3 class="title">Detail Transaksi</h3>
         </div>
-        <div class="item-list">
+        <div class="box-list">
+          <div class="box-item">
+            <div class="item">
+              <p>Game</p>
+              <p>{{transactionData.game.name}}</p>
+            </div>
+            <div class="item">
+              <p>User Name</p>
+              <p>{{transactionData.usergame.username}}</p>
+            </div>
+            <div class="item">
+              <p>User ID</p>
+              <p>{{transactionData.usergame.globalid}}</p>
+            </div>
+            <div class="item">
+              <p>Server ID</p>
+              <p>{{transactionData.usergame.server}}</p>
+            </div>
+            <div class="item">
+              <p>Nomor HP</p>
+              <p>{{transactionData.user.phone}}</p>
+            </div>
+            <div class="item">
+              <p>Produk</p>
+              <p>{{transactionData.product.name}}</p>
+            </div>
+          </div>
+          <div class="box-item">
+            <div class="item">
+              <p>Harga Produk</p>
+              <p>{{rupiahText(transactionData.payment.product_price)}}</p>
+            </div>
+            <div class="item">
+              <p>Biaya Seller</p>
+              <p>{{rupiahText(transactionData.payment.seller_cost)}}</p>
+            </div>
+            <div class="item">
+              <p>Biaya Layanan</p>
+              <p>{{rupiahText(transactionData.payment.service_cost)}}</p>
+            </div>
+          </div>
+          <div class="box-item strong">
+            <div class="item">
+              <p>Transaksi Total</p>
+              <p>{{rupiahText(transactionData.payment.total_cost)}}</p>
+            </div>
+            <div class="item">
+              <p>Transaksi Dibayar</p>
+              <p>{{rupiahText(transactionData.payment.paid_price)}}</p>
+            </div>
+            <div class="item">
+              <p>Kembalian</p>
+              <p>{{rupiahText(transactionData.payment.paid_price - transactionData.payment.total_cost)}} </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

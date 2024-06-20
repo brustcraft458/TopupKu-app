@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/mainapp/transaction-status/transaction-status.module').then( m => m.TransactionStatusPageModule)
   },
   {
-    path: 'mainapp/transaction/game/:transaction_id',
+    path: 'mainapp/transaction/detail/:transaction_id',
     loadChildren: () => import('./pages/mainapp/transaction-detail/transaction-detail.module').then( m => m.TransactionDetailPageModule)
   },
 

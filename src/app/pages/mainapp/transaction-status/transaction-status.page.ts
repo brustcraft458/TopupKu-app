@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { localText, rupiahText } from 'src/app/helpers/text'
 import { TransactionApiService } from 'src/app/services/transaction-api.service';
 
@@ -13,7 +14,7 @@ export class TransactionStatusPage implements OnInit {
   localText = localText
   rupiahText = rupiahText
 
-  constructor(private route: ActivatedRoute, private transaction: TransactionApiService) { }
+  constructor(private route: ActivatedRoute, private navigation: NavController, private transaction: TransactionApiService) { }
 
   param = {
     status: "",
@@ -35,6 +36,10 @@ export class TransactionStatusPage implements OnInit {
     this.transaction.getGameUsers(this.param.status, this.param.gameId).subscribe(resp => {
       this.transactionList = resp.data
     })
+  }
+
+  redirectToDetail(transactionId: string) {
+    this.navigation.navigateForward(`mainapp/transaction/detail/${transactionId}`)
   }
 
 }

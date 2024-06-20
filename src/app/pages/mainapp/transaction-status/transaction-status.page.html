@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="item-list">
-          <div class="item" button *ngFor="let item of transactionList">
+          <div class="item" button *ngFor="let item of transactionList" (click)="redirectToDetail(item.transaction_id)">
             <div class="left-desc">
               <div class="icon">
                 <img src="assets/image/gameiconml.png" alt="">

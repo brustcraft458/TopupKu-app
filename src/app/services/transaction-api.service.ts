@@ -45,6 +45,7 @@ export class TransactionApiService {
         updated_at: ""
       },
       game: {
+        id: "",
         name: ""
       },
       user: {
@@ -84,7 +85,7 @@ export class TransactionApiService {
   }
 
   getDetail(transactionId: string) {
-    return this.http.get<any>(`${this.apiUrl}/transactions/game/${transactionId}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/transactions/detail/${transactionId}`).pipe(
       catchError(this.handleError)
     )
   }
