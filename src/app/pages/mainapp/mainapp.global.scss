@@ -279,6 +279,15 @@
           justify-content: space-between;
           align-items: center;
           flex-direction: row;
+
+          &.danger {
+            color: #ff0000;
+            font-weight: 900;
+          }
+
+          &.warning {
+            color: #ffff00;
+          }
         }
 
         &:not(:last-child)::after {

@@ -32,7 +32,8 @@ export class TransactionApiService {
       lasted_price: 0,
       product_price: 0,
       paid_price: 0,
-      usergame_name: ""
+      usergame_username: "",
+      usergame_globalid: ""
     }
   }
 
@@ -67,7 +68,9 @@ export class TransactionApiService {
         seller_cost: 0,
         service_cost: 0,
         total_cost: 0,
-        paid_price: 0
+        paid_price: 0,
+        refund_cost: 0,
+        debt_cost: 0
       }
     }
   }
