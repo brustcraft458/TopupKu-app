@@ -15,11 +15,6 @@ export class MainHeaderComponent  implements OnInit {
   constructor(private navigation: NavController, private platform: Platform) {}
 
   ngOnInit() {
-    this.platform.backButton.subscribeWithPriority(10, () => {
-      if (this.backRedirect) {
-        this.navigation.navigateBack(this.backRedirect);
-      }
-    });
   }
 
   redirectBack() {
