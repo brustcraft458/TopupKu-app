@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
         this.navigation.navigateForward("/mainapp/transaction/game")
       },
       error: (err) => {
-        this.alert.present({header: err.message, message: err.debug})
+        this.alert.present(err)
       }
     })
   }

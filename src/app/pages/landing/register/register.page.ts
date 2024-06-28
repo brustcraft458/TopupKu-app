@@ -61,7 +61,12 @@ export class RegisterPage implements OnInit {
         this.navigation.navigateForward("/landing/login")
       },
       error: (err) => {
-        this.alert.present({header: err.message, message: err.debug})
+        if (err.header == "fail_validation") {
+          // change to red this.input.emailOrPhone
+          // change to red this.input.username
+          // change to red this.input.password
+        }
+        this.alert.present(err)
       }
     })
   }

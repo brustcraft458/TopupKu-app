@@ -1,0 +1,70 @@
+{
+    "success_get_product": {
+        "text": "Prodak Ditemukan"
+    },
+
+    "fail_get_product_notfound": {
+        "text": "Produk tidak Ditemukan"
+    },
+
+    "success_get_transaction": {
+        "text": "Transaksi Ditemukan"
+    },
+
+    "success_update_transaction": {
+        "text": "Transaksi Diupdate"
+    },
+
+    "success_create_transaction": {
+        "text": "Transaksi Dibuat"
+    },
+
+    "fail_get_transaction_notfound": {
+        "text": "Transaksi Tidak Ditemukan",
+        "desc": "Pastikan Untuk Mengecek ID"
+    },
+
+    "fail_get_transaction_empty": {
+        "text": "Transaksi Kosong",
+        "desc": "Pastikan Untuk Mengecek ID"
+    },
+
+    "success_login": {
+        "text": "Login Berhasil",
+        "desc": "Selamat Datang dan silahkan melakukan sesuatu"
+    },
+
+    "fail_login": {
+        "text": "Login Gagal",
+        "desc": "Pastikan username atau password benar"
+    },
+
+    "success_register": {
+        "text": "Register Berhasil",
+        "desc": "Terimakasih sudah registrasi, silahkan login"
+    },
+
+    "fail_email_phone": {
+        "text": "Email Atau Nomor HP tidak valid",
+        "desc": "Pastikan anda memasukkan Email atau Password dengan henar"
+    },
+
+    "fail_validation": {
+        "text": "Validasi Input Gagal"
+    },
+
+    "fail_otp_send": {
+        "text": "Otp Gagal Dikirim",
+        "desc": "Pastikan Nomor HP / Email Benar"
+    },
+
+    "fail_system": {
+        "text": "Terjadi kegagalan System"
+    },
+
+    "httperrorresponse": {
+        "text": "Tidak Dapat Terhubung",
+        "desc": "Pastikan Koneksi internet anda stabil"
+    }
+
+}

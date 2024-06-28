@@ -94,8 +94,8 @@ export class TransactionApiService {
   }
 
   private handleError(err: any) {
-    let msg = err.error?.message || err.name
-    let debug = err.error?.debug?.message || ""
-    return throwError(() => ({ message: msg, debug: debug }))
+    let header = err.error?.message || err.name
+    let message = err.error?.debug?.message || err.message || ""
+    return throwError(() => ({ header, message }))
   }
 }
