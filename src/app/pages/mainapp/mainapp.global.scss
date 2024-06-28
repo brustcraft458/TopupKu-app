@@ -194,6 +194,8 @@
         --background: #416593;
         --padding-top: 6px;
         --padding-bottom: 6px;
+        --border-style: none;
+        --border-bottom: 0px;
 
         .left-desc {
           display: flex;
@@ -236,8 +238,6 @@
 
         .right-value {
           display: flex;
-          width: fit-content;
-          height: fit-content;
           justify-content: flex-end;
           align-items: center;
           gap: 10px;

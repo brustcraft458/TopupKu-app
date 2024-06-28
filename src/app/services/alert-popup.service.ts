@@ -15,18 +15,10 @@ export class AlertPopupService {
       message: message,
       buttons: [
         {
-          text: 'No',
-          role: 'cancel',
-          cssClass: 'alert-button-no',
+          text: 'Ok',
+          cssClass: 'alert-button-ok',
           handler: () => {
-            console.log('No clicked');
-          }
-        },
-        {
-          text: 'Yes',
-          cssClass: 'alert-button-yes',
-          handler: () => {
-            console.log('Yes clicked');
+            console.log('Ok clicked');
           }
         }
       ]
