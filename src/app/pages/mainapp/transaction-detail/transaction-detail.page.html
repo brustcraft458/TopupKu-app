@@ -10,91 +10,91 @@
         </div>
         <div class="bottom-information">
           <div class="left-text">
-            <p class="title">Produk</p>
+            <p class="title">{{localText('transaction.count.product')}}</p>
             <h4 class="value"><ion-icon name="cube-sharp"/>{{transactionData.product.name}}</h4>
           </div>
           <div class="right-text">
-            <p class="title">Harga</p>
+            <p class="title">{{localText('transaction.count.price')}}</p>
             <h4 class="value"><ion-icon name="pricetags-sharp"/>{{rupiahText(transactionData.product.price, {short: true})}}</h4>
           </div>
         </div>
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">Detail Transaksi</h3>
+          <h3 class="title">{{localText('transaction.title.detail')}}</h3>
         </div>
         <div class="box-list">
           <div class="box-item">
             <div class="item">
-              <p>Game</p>
+              <p>{{localText('transaction.detail.game')}}</p>
               <p>{{transactionData.game.name}}</p>
             </div>
             <ng-container *ngIf="transactionData.usergame.username; else usernameNotFound">
               <div class="item">
-                <p>User Name</p>
+                <p>{{localText('transaction.detail.username')}}</p>
                 <p>{{transactionData.usergame.username}}</p>
               </div>
               <div class="item">
-                <p>User ID</p>
+                <p>{{localText('transaction.detail.globalid')}}</p>
                 <p>{{transactionData.usergame.globalid}}</p>
               </div>
               <div class="item" *ngIf="transactionData.usergame.server">
-                <p>Server ID</p>
+                <p>{{localText('transaction.detail.server')}}</p>
                 <p>{{transactionData.usergame.server}}</p>
               </div>
             </ng-container>
             <ng-template #usernameNotFound>
               <div class="item danger">
-                <p>User Name</p>
-                <p>Tidak Ditemukan <ion-icon name="warning-outline"/></p>
+                <p>{{localText('transaction.detail.username')}}</p>
+                <p>{{localText('transaction.status.not_found')}} <ion-icon name="warning-outline"/></p>
               </div>
               <div class="item warning">
-                <p>User ID</p>
+                <p>{{localText('transaction.detail.globalid')}}</p>
                 <p>{{transactionData.usergame.globalid}}</p>
               </div>
               <div class="item warning" *ngIf="transactionData.usergame.server">
-                <p>Server ID</p>
+                <p>{{localText('transaction.detail.server')}}</p>
                 <p>{{transactionData.usergame.server}}</p>
               </div>
             </ng-template>
             <div class="item">
-              <p>Nomor HP</p>
+              <p>{{localText('transaction.detail.phone')}}</p>
               <p>{{transactionData.user.phone}}</p>
             </div>
             <div class="item">
-              <p>Produk</p>
+              <p>{{localText('transaction.detail.product')}}</p>
               <p>{{transactionData.product.name}}</p>
             </div>
           </div>
           <div class="box-item">
             <div class="item">
-              <p>Harga Produk</p>
+              <p>{{localText('transaction.detail.product_price')}}</p>
               <p>{{rupiahText(transactionData.payment.product_price)}}</p>
             </div>
             <div class="item">
-              <p>Biaya Seller</p>
+              <p>{{localText('transaction.detail.seller_cost')}}</p>
               <p>{{rupiahText(transactionData.payment.seller_cost)}}</p>
             </div>
             <div class="item">
-              <p>Biaya Layanan</p>
+              <p>{{localText('transaction.detail.service_cost')}}</p>
               <p>{{rupiahText(transactionData.payment.service_cost)}}</p>
             </div>
           </div>
           <div class="box-item strong">
             <div class="item">
-              <p>Transaksi Total</p>
+              <p>{{localText('transaction.detail.total_cost')}}</p>
               <p>{{rupiahText(transactionData.payment.total_cost)}}</p>
             </div>
             <div class="item">
-              <p>Transaksi Dibayar</p>
+              <p>{{localText('transaction.detail.paid_price')}}</p>
               <p>{{rupiahText(transactionData.payment.paid_price)}}</p>
             </div>
             <div class="item warning" *ngIf="transactionData.payment.refund_cost > 0">
-              <p>Kembalian</p>
+              <p>{{localText('transaction.detail.refund_cost')}}</p>
               <p>{{rupiahText(transactionData.payment.refund_cost)}}</p>
             </div>
             <div class="item warning" *ngIf="transactionData.payment.debt_cost > 0">
-              <p>Hutang</p>
+              <p>{{localText('transaction.detail.debt_cost')}}</p>
               <p>{{rupiahText(transactionData.payment.debt_cost)}}</p>
             </div>
           </div>

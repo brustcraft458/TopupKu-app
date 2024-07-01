@@ -1,8 +1,35 @@
 {
   "transaction": {
     "title": {
+      "balance": "Total Saldo Seller",
+      "detail": "Detail Transaksi",
       "success": "Transaksi Berhasil",
       "pending": "Transaksi Pending"
+    },
+    "count": {
+      "people": "Orang",
+      "product": "Produk",
+      "price": "Harga",
+      "success": "Berhasil",
+      "pending": "Pending"
+    },
+    "status": {
+      "not_found": "Tidak Ditemukan"
+    },
+    "detail": {
+      "game": "Game",
+      "username": "User Name",
+      "globalid": "User ID",
+      "server": "Server ID",
+      "phone": "Nomor HP",
+      "product": "Produk",
+      "product_price": "Harga Produk",
+      "seller_cost": "Biaya Seller",
+      "service_cost": "Biaya Layanan",
+      "total_cost": "Transaksi Total",
+      "paid_price": "Transaksi Dibayar",
+      "refund_cost": "Kembalian",
+      "debt_cost": "Hutang"
     }
   }
 }

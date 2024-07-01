@@ -5,23 +5,23 @@
       <div class="information-card">
         <div class="background"></div>
         <div class="top-information">
-          <p class="title">Total Saldo Seller</p>
+          <p class="title">{{localText('transaction.title.balance')}}</p>
           <h3 class="highlight">{{rupiahText(informationData.success.price)}}</h3>
         </div>
         <div class="bottom-information">
           <div class="left-text">
-            <p class="title">Pending</p>
+            <p class="title">{{localText('transaction.count.pending')}}</p>
             <h4 class="value"><ion-icon name="person-sharp"/>{{informationData.pending.user}}</h4>
           </div>
           <div class="right-text">
-            <p class="title">Berhasil</p>
+            <p class="title">{{localText('transaction.count.success')}}</p>
             <h4 class="value"><ion-icon name="person-sharp"/>{{informationData.success.user}}</h4>
           </div>
         </div>
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">{{localText('transaction_title_pending')}}</h3>
+          <h3 class="title">{{localText('transaction.title.pending')}}</h3>
         </div>
         <div class="item-list">
           <ion-item class="item" button *ngFor="let item of transactionDataList.pending" (click)="redirectToPending(item.game_id)">
@@ -42,7 +42,7 @@
       </div>
       <div class="list-container">
         <div class="top-title">
-          <h3 class="title">{{localText('transaction_title_success')}}</h3>
+          <h3 class="title">{{localText('transaction.title.success')}}</h3>
         </div>
         <div class="item-list">
           <ion-item class="item" button *ngFor="let item of transactionDataList.success" (click)="redirectToSuccess(item.game_id)">
@@ -52,7 +52,7 @@
               </div>
               <div class="text-desc">
                 <h5 class="title">{{item.game_name}}</h5>
-                <p class="label">{{item.user_total}} Orang</p>
+                <p class="label">{{item.user_total}} {{localText('transaction.count.people')}}</p>
               </div>
             </div>
             <div class="right-value" slot="end">

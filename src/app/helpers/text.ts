@@ -7,15 +7,13 @@ export function capitalizeFirstLetter(str: string): string {
 
 // Translate Local Text
 export function localText(key: string): string {
-  const keys = key.toLowerCase().split('_')
+  const keys = key.toLowerCase().split('.')
 
   // Traverse the JSON object using the keys
-  let textData: any = clientTextData
-  let value = ""
-
+  let value: any = clientTextData
   for (const k of keys) {
-    if (textData[k]) {
-      value = textData[k]
+    if (value[k]) {
+      value = value[k]
     } else {
       return ''
     }
