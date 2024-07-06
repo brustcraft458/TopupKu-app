@@ -99,10 +99,13 @@
             </div>
           </div>
         </div>
+        <!-- Add hidden file input for image upload -->
+        <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept="image/*" />
+
         <div class="button-list">
           <ng-container *ngIf="transactionData.usergame.username; else repairUsername">
-            <ion-button class="button primary" expand="block" color="primary">Setujui Transaksi</ion-button>
-            <ion-button class="button danger" expand="block" color="danger">Batalkan Transaksi</ion-button>
+            <ion-button class="button primary" expand="block" color="primary" (click)="approveTransaction(fileInput)">Setujui Transaksi</ion-button>
+            <ion-button class="button danger" expand="block" color="danger" (click)="rejectTransaction()">Batalkan Transaksi</ion-button>
           </ng-container>
           <ng-template #repairUsername>
             <ion-button class="button warning" expand="block" color="warning">Perbaiki Transaksi</ion-button>

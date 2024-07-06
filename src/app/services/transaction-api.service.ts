@@ -1,16 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionApiService {
   private apiUrl: string;
+  private token: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private storage: LocalStorageService) {
     this.apiUrl = `${environment.serverUrl}/api`
+    this.token = ''
+
+    this.initCacheInput()
+  }
+
+  async initCacheInput() {
+    this.token = await this.storage.getItem('user_token')
   }
 
   initGameTotal() {
@@ -75,22 +84,47 @@ export class TransactionApiService {
     }
   }
 
+  private getHeaders() {
+    return new HttpHeaders({
+      'Authorization': this.token
+    });
+  }
+
   getGameTotal(status: string) {
-    return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}`, { headers: this.getHeaders() }).pipe(
       catchError(this.handleError)
-    )
+    );
   }
 
   getGameUsers(status: string, gameId: string) {
-    return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}/${gameId}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/transactions/game/${status}/${gameId}`, { headers: this.getHeaders() }).pipe(
       catchError(this.handleError)
-    )
+    );
   }
 
   getDetail(transactionId: string) {
-    return this.http.get<any>(`${this.apiUrl}/transactions/detail/${transactionId}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/transactions/detail/${transactionId}`, { headers: this.getHeaders() }).pipe(
       catchError(this.handleError)
-    )
+    );
+  }
+
+  uploadImage(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(`${this.apiUrl}/file/image`, formData, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  updateTransaction(transactionId: string, imageUrl: string) {
+    const updateData = {
+      "status" : "success",
+      "processed_proof": imageUrl
+    }
+    console.log(transactionId)
+    return this.http.patch<any>(`${this.apiUrl}/transactions/detail/${transactionId}`, updateData, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
   private handleError(err: any) {
